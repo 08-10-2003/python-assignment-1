@@ -1,0 +1,65 @@
+1.Shape (in the numpy context) seems to me the better option for an argument name. The actual relation between the two is size = np. prod(shape) so the distinction should indeed be a bit more obvious in the arguments names. randint uses the size parameter name, but uses shape in the explanation.
+I noticed that some numpy operations take an argument called shape, such as np.zeros, whereas some others take an argument called size, such as np.random.randint. To me, those arguments have the same function and the fact that they have different names is a bit confusing. Actually, size seems a bit off since it really specifies the .shape of the output.
+2.The term broadcasting refers to the ability of NumPy to treat arrays of different shapes during arithmetic operations. Arithmetic operations on arrays are usually done on corresponding elements. If two arrays are of exactly the same shape, then these operations are smoothly performed.
+3.It can take data formats of CSV or TSV files, or a SQL database and convert it into Python data frames with rows and columns which is similar to tables in statistical formats. The package makes comparisons with dictionaries with the aid of 'for' loops which are very easy to understand and operate.
+However, NumPy, the core library for scientific computing in Python, helps keep computations fast and lets your system perform efficiently.
+4.NumPy introduces a simple file format for ndarray objects. This . npy file stores data, shape,
+dtype and other information required to reconstruct the ndarray in a disk file such that the array
+is correctly retrieved even if the file is on another machine with different architecture.
+Numpy is an acronym for ‘Numerical Python’. It is a library in python for supporting
+n-dimensional arrays. But have you ever wondered about loading data into NumPy from text
+files. Don’t worry we will discuss the same in this article. To import Text files into Numpy Arrays,
+we have two functions in Numpy:
+numpy.loadtxt( ) – Used to load text file data
+numpy.genfromtxt( ) – Used to load data from a text file, with missing values handled as defined.
+Note: numpy.loadtxt( ) is equivalent function to numpy.genfromtxt( ) when no data is missing.
+
+Method 1 : numpy.loadtxt()
+Syntax :
+numpy.loadtxt(fname, dtype = float, comments=’#’, delimiter=None, converters=None,
+skiprows=0, usecols=None, unpack=False, ndmin=0, encoding=’bytes’, max_rows=None, *,
+like= None)
+Example 1: Importing Text file into Numpy arrays
+The following ‘example1.txt’ text file is considered in this example.
+Python3
+import numpy as np
+# Text file data converted to integer data type
+File_data = np.loadtxt("example1.txt", dtype=int)
+print(File_data)
+Output :
+[[ 1 2]
+[ 3 4]
+[ 5 6]
+[ 7 8]
+[ 9 10]
+5.The numpy module of Python provides a function called numpy. empty(). This function is used to
+create an array without initializing the entries of given shape and type.
+Just like numpy.zeros(), the numpy.empty() function doesn't set the array values to zero, and it
+is quite faster than the numpy.zeros(). This function requires the user to set all the values in the
+array manually and should be used with caution.
+Syntax
+numpy.empty(shape, dtype=float, order='C')
+Parameters:
+shape: int or tuple of ints
+This parameter defines the shape of the empty array, such as (3, 2) or (3, 3).
+dtype: data-type(optional)
+This parameter defines the data type, which is desired for the output array
+order: {'C', 'F'}(optional)
+This parameter defines the order in which the multi-dimensional array is going to be stored
+either in row-major or column-major. By default, the order parameter is set to 'C'.
+Returns:
+This function returns the array of uninitialized data that have the shape, dtype, and order
+defined in the function.
+Example 1:
+import numpy as np
+x = np.empty([3, 2])
+x
+Output:
+array([[7.56544226e-316, 2.07617768e-316],
+[2.02322570e-316, 1.93432036e-316],
+[1.93431918e-316, 1.93431799e-316]])
+In the above code
+We have imported numpy with alias name np.
+We have declared the variable 'x' and assigned the returned value of the np.empty() function.
+We have passed the shape in the function.
+Lastly, we tried to print the value of 'x' and the difference between elements.
